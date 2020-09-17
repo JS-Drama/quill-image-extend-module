@@ -160,6 +160,17 @@ export class ImageExtend {
                     if (self.config.success) {
                         self.config.success()
                     }
+                    let quill = window.document.getElementById('mail_editor');
+                    let e = quill.getElementsByTagName('img');
+                    if (e) {
+                        for (let index = 0; index < e.length; index++) {
+                            const element = e[index];
+                            let src = element.src;
+                            if (src.indexOf('data:image/png;base64,') > -1) {
+                                element.parentNode.removeChild(element);
+                            }
+                        }
+                    }
                 } else {
                     //error
                     if (self.config.error) {
