@@ -80,6 +80,7 @@ export class ImageExtend {
                 }
                 if (this.config.action) {
                     // this.uploadImg()
+                    setTimeout(() => this.uploadImg(), 0);
                 } else {
                     // this.toBase64()
                 }
